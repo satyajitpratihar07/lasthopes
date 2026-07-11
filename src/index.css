@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #020617;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ─── Background Video Fill ──────────────────────────────── */
+/* Ensures any video used as a background fills its container */
+video.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+
+/* ─── Material Symbols ───────────────────────────────────── */
+.material-symbols-outlined,
+.material-symbols-filled {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+  user-select: none;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.4s ease, color 0.3s ease;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─── 3D Icon Hover Animations ─── */
+.icon-3d-flip-y:hover {
+  transform: rotateY(180deg) translateZ(12px) scale(1.1);
+  text-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+.icon-3d-flip-x:hover {
+  transform: rotateX(180deg) translateZ(12px) scale(1.1);
+  text-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+.icon-3d-spin:hover {
+  transform: rotateZ(360deg) scale(1.2) translateZ(15px);
+  text-shadow: 0 0 8px currentColor;
+}
+
+.icon-3d-float:hover {
+  transform: translateY(-5px) translateZ(18px) rotate(6deg);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
+}
+
+.icon-3d-pop:hover {
+  transform: scale(1.3) translateZ(20px);
+  text-shadow: 0 0 10px currentColor;
+}
+
+@keyframes wobble3d {
+  0% {
+    transform: rotate(0deg) translateZ(0);
+  }
+
+  15% {
+    transform: rotate(-15deg) translateZ(8px) scale(1.15);
+  }
+
+  30% {
+    transform: rotate(12deg) translateZ(8px) scale(1.15);
+  }
+
+  45% {
+    transform: rotate(-10deg) translateZ(8px) scale(1.15);
+  }
+
+  60% {
+    transform: rotate(8deg) translateZ(8px) scale(1.15);
+  }
+
+  75% {
+    transform: rotate(-4deg) translateZ(8px) scale(1.15);
+  }
+
+  100% {
+    transform: rotate(0deg) translateZ(8px) scale(1.15);
+  }
+}
+
+.icon-3d-wobble:hover {
+  animation: wobble3d 0.65s ease-in-out forwards;
+}
+
+/* ─── Dark Theme Glassmorphism ───────────────────────────── */
+.premium-blur {
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  background-color: rgba(9, 13, 26, 0.92) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Light Theme Glass ──────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ─── Mesh Gradient Background ───────────────────────────── */
+.mesh-gradient {
+  background:
+    radial-gradient(at 0% 0%, rgba(0, 106, 97, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(84, 95, 115, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(2, 6, 23, 0.75) 0px, rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* ─── Geometric Grid ─────────────────────────────────────── */
+.geometric-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─── Rim Light Effect ───────────────────────────────────── */
+.rim-light {
+  position: relative;
+}
+
+.rim-light::after {
+  content: "";
+  position: absolute;
+  inset: -0.5px;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.1),
+      transparent 40%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.05));
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ─── Text & Glow Helpers ────────────────────────────────── */
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.accent-glow {
+  box-shadow: 0 0 20px rgba(107, 216, 203, 0.25);
+}
+
+.text-gradient-student {
+  background: linear-gradient(135deg, #ffffff 10%, #2dd4bf 50%, #008b7d 80%, #ffffff 90%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 4s linear infinite, textGlowTeal 3s ease-in-out infinite alternate;
+  display: inline-block;
+}
+
+.text-gradient-admin {
+  background: linear-gradient(135deg, #ffffff 10%, #fbbf24 50%, #b45309 80%, #ffffff 90%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 4s linear infinite, textGlowAmber 3s ease-in-out infinite alternate;
+  display: inline-block;
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes textGlowTeal {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.25));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 20px rgba(45, 212, 191, 0.55));
+  }
+}
+
+@keyframes textGlowAmber {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.25));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.55));
+  }
+}
+
+/* ─── OTP Input ──────────────────────────────────────────── */
+.otp-input:focus {
+  border-color: #006a61;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 106, 97, 0.12);
+  outline: none;
+}
+
+/* ─── Scrollbar & Smooth Scroll ──────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(2, 6, 23, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ─── Scroll Reveal & Fade Animations ────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: scrollRevealFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scrollRevealFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Selection ──────────────────────────────────────────── */
+::selection {
+  background: rgba(107, 216, 203, 0.3);
+}
+
+::selection {
+  background: rgba(107, 216, 203, 0.3);
+}

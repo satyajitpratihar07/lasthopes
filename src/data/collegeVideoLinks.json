@@ -1,0 +1,18 @@
+[
+  {
+    "name": "MIT",
+    "videoUrl": "https://www.youtube.com/watch?v=R7l1Qn1R7x0"
+  },
+  {
+    "name": "Stanford",
+    "videoUrl": "https://www.youtube.com/shorts/abcdef12345"
+  },
+  {
+    "name": "Harvard",
+    "videoUrl": "https://youtu.be/xyz98765432"
+  },
+  {
+    "name": "Oxford",
+    "videoUrl": "https://www.youtube.com/live/12345abcdef"
+  }
+]
