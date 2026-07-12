@@ -80,7 +80,7 @@ It is built especially for students who have limited time before exams and need 
 - JavaScript
 - TypeScript
 - Database
-- 
+- OTP Verification
 - Responsive Design
 - Cloudflare Pages
 
