@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 LastHope
+📚 LastHope
 ### 🚀 Your Last-Minute Study Companion for College & Competitive Exams
 
 <p align="center">
@@ -23,7 +23,7 @@
 
 ---
 
-# ✨ About
+✨ About
 
 **LastHope** is designed for students who need the most important learning resources in the shortest possible time.
 
@@ -33,7 +33,7 @@ It eliminates endless searching and helps students focus only on what matters.
 
 ---
 
-# 🎯 Features
+🎯 Features
 
 - 📖 Last-Minute Exam Preparation
 - 🎥 Curated YouTube Video Lectures
@@ -48,7 +48,7 @@ It eliminates endless searching and helps students focus only on what matters.
 
 ---
 
-# 🎯 Who Can Use It?
+🎯 Who Can Use It?
 
 - 👨‍🎓 College Students
 - 👩‍🎓 University Students
