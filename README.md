@@ -25,7 +25,7 @@
 
 ✨ About
 
-**LastHope** is designed for students who need the most important learning resources in the shortest possible time.
+LastHope is designed for students who need the most important learning resources in the shortest possible time.
 
 Whether you're preparing for tomorrow's college exam or a competitive exam like **GATE**, LastHope provides carefully selected YouTube lectures, quick revision resources, and smart study materials—all in one place.
 
@@ -73,7 +73,7 @@ It is built especially for students who have limited time before exams and need 
 
 ---
 
-# 🛠️ Tech Stack
+🛠️ Tech Stack
 
 - HTML5
 - CSS3
@@ -83,7 +83,7 @@ It is built especially for students who have limited time before exams and need 
 
 ---
 
-# 📱 Responsive
+📱 Responsive
 
 ✅ Desktop
 
@@ -95,7 +95,7 @@ It is built especially for students who have limited time before exams and need 
 
 ---
 
-# 🌟 Future Updates
+🌟 Future Updates
 
 - 🤖 AI Study Assistant
 - 📅 Smart Study Planner
@@ -108,13 +108,13 @@ It is built especially for students who have limited time before exams and need 
 
 ---
 
-# ❤️ Mission
+❤️ Mission
 
 > **Helping students learn smarter, revise faster, and perform better—even at the last minute.**
 
 ---
 
-# 🤝 Contributing
+🤝 Contributing
 
 Contributions, ideas, and suggestions are always welcome.
 
@@ -122,7 +122,7 @@ If you find this project useful, don't forget to ⭐ the repository.
 
 ---
 
-# 👨‍💻 Developer
+👨‍💻 Developer
 
 **Satyajit Pratihar**
 
@@ -132,7 +132,7 @@ Passionate about building AI-powered applications that solve real-world problems
 
 <div align="center">
 
-### ⭐ If you like this project, please give it a Star ⭐
+⭐ If you like this project, please give it a Star ⭐
 
 Made with ❤️ by **Satyajit Pratihar**
 
