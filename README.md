@@ -59,13 +59,13 @@ It eliminates endless searching and helps students focus only on what matters.
 
 ---
 
-# 🚀 Live Website
+🚀 Live Website
 
-### 🌐 https://lasthopes.pages.dev/
+🌐 https://lasthopes.pages.dev/
 
 ---
 
-# 💡 Why LastHope?
+💡 Why LastHope?
 
 Instead of spending hours searching for the best lectures, LastHope collects quality educational resources in one place.
 
