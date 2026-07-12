@@ -75,9 +75,12 @@ It is built especially for students who have limited time before exams and need 
 
 🛠️ Tech Stack
 
-- HTML5
+- React
 - CSS3
 - JavaScript
+- TypeScript
+- Database
+- 
 - Responsive Design
 - Cloudflare Pages
 
