@@ -3,21 +3,7 @@ import Icon from '../components/Icon';
 
 export default function PublicReelsPage() {
   const [reelsVideos, setReelsVideos] = useState([]);
-  const [currentReelIndex, setCurrentReelIndex] = useState(0);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('lastHopeReels');
-    if (saved) {
-      setReelsVideos(JSON.parse(saved));
-    }
-    
-    // Sync if updated in another tab
-    const handleStorage = () => {
-      const updated = localStorage.getItem('lastHopeReels');
-      if (updated) setReelsVideos(JSON.parse(updated));
-    };
-    window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
+  const [currentR', handleStorage);
   }, []);
 
   const getEmbedUrl = (url) => {
