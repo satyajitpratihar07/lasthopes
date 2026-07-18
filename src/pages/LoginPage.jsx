@@ -6,20 +6,6 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { doc, getDoc } from 'firebase/firestore'
 import Features3D from '../components/Features3D'
 export default function LoginPage() {
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const blob1Ref = useRef(null)
-  const blob2Ref = useRef(null)
-  const cardRef = useRef(null)
-  const [mounted, setMounted] = useState(false)
-
-  // ── Digital Clock State ──
-  const [now, setNow] = useState(new Date())
-  const [blink, setBlink] = useState(true)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const tick = setInterval(() => setNow(new Date()), 1000)
     const blinkTimer = setInterval(() => setBlink(b => !b), 500)
     return () => { clearInterval(tick); clearInterval(blinkTimer) }
   }, [])
@@ -125,41 +111,7 @@ export default function LoginPage() {
         localStorage.setItem('lastHopeSavedAccounts', JSON.stringify(newSaved));
       }
 
-      setLoading(false)
-      navigate('/dashboard')
-    } catch (err) {
-      setLoading(false)
-      console.error("Login failed:", err)
-      setError(err.message || 'Invalid credentials. Please check your email and password.')
-    }
-  }
-
-  const isAdmin = role === 'Admin'
-  const accent = isAdmin ? 'text-amber-400' : 'text-teal-400'
-  const ringAccent = isAdmin ? 'focus:ring-amber-500/40 focus:border-amber-500/50' : 'focus:ring-teal-500/40 focus:border-teal-500/50'
-  const btnGrad = isAdmin
-    ? 'bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-400 hover:to-amber-600'
-    : 'bg-gradient-to-r from-teal-500 to-teal-700 hover:from-teal-400 hover:to-teal-600'
-
-  // ── Clock Formatting ──
-  const hh = String(now.getHours()).padStart(2, '0')
-  const mm = String(now.getMinutes()).padStart(2, '0')
-  const ss = String(now.getSeconds()).padStart(2, '0')
-  const colon = blink ? ':' : ' '
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const dateStr = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`
-  const ampm = now.getHours() >= 12 ? 'PM' : 'AM'
-  const hour12 = String(now.getHours() % 12 || 12).padStart(2, '0')
-
-  return (
-    <div className="h-screen flex items-stretch relative text-white overflow-hidden">
-
-
-      {/* Ambient blobs */}
-      <div ref={blob1Ref} className="fixed top-1/3 left-1/5 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none z-[-1]"
-        style={{ background: isAdmin ? 'rgba(217,119,6,0.10)' : 'rgba(20,184,166,0.10)' }} />
-      <div ref={blob2Ref} className="fixed bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[-1]"
+      setLoading(00px] h-[400px] rounded-full blur-[100px] pointer-events-none z-[-1]"
         style={{ background: 'rgba(84,95,115,0.08)' }} />
 
       {/* ── Digital Clock — fades out on scroll ── */}
@@ -239,41 +191,6 @@ export default function LoginPage() {
       {/* ── Two-Column Layout ─────────────────────────────── */}
       <div className="w-full flex h-full">
 
-        {/* ════════════════════════════════════════
-            LEFT PANEL — Scrollable content
-            ════════════════════════════════════════ */}
-        <div className={`hidden lg:flex flex-col w-[58%] h-full overflow-y-auto px-16 py-12 gap-10 transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-
-          {/* Logo */}
-          <div className="flex items-center gap-4">
-            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border ${isAdmin ? 'bg-amber-500/10 border-amber-500/30' : 'bg-teal-500/10 border-teal-500/30'}`}>
-              <Icon name={isAdmin ? 'admin_panel_settings' : 'school'} filled size={30} className={accent} />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-white tracking-tight leading-none">Last Hope</h1>
-              <p className={`text-xs font-mono mt-0.5 ${isAdmin ? 'text-amber-400/70' : 'text-teal-400/70'}`}>
-                {isAdmin ? 'Admin Portal' : 'Student Portal'}
-              </p>
-            </div>
-          </div>
-
-          {/* Headline */}
-          <div className="space-y-5">
-            <h2 className="text-[80px] xl:text-[100px] leading-[0.88] font-extrabold text-white tracking-[-0.04em]">
-              {typedText.split(' ').slice(0, -1).join(' ')}{' '}
-              <span className={isAdmin ? 'text-gradient-admin' : 'text-gradient-student'}>
-                {typedText.split(' ').slice(-1)[0]}
-              </span>
-              <span className="animate-pulse inline-block w-[3px] h-[70px] xl:h-[88px] bg-white/60 ml-2 align-middle rounded-full" />
-            </h2>
-            <p className="text-lg text-slate-300/80 leading-relaxed max-w-[520px]">
-              {isAdmin
-                ? 'Secure administrative access for faculty. Manage students, courses, streams, and institutional data from one unified dashboard.'
-                : 'Your precision-engineered academic companion. Sync class schedules, notes, YouTube resources, and GATE prep — all in one place.'}
-            </p>
-          </div>
-
-          {/* Trust badges */}
           <div className="flex gap-3 flex-wrap">
             {[
               { icon: 'verified', label: isAdmin ? 'Verified Faculty' : 'Structured Learning' },
@@ -354,26 +271,7 @@ export default function LoginPage() {
                     <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
                     {isAdmin ? 'ADMIN SESSION' : 'STUDENT SESSION'}
                   </div>
-                  <h3 className="text-[28px] font-bold text-white tracking-tight leading-tight">
-                    {isAdmin ? 'Welcome, Admin' : 'Welcome Back'}
-                  </h3>
-                  <p className="text-slate-400 mt-1.5 text-sm">
-                    {isAdmin ? 'Sign in to your administrative portal.' : 'Sign in to continue your academic journey.'}
-                  </p>
-                </div>
-                
-                {/* Saved Accounts Dropdown Toggle */}
-                {savedAccounts.length > 0 && (
-                  <div className="relative">
-                    <button 
-                      type="button"
-                      onClick={() => setShowSavedMenu(v => !v)}
-                      className={`p-2.5 rounded-xl border flex items-center justify-center transition-all ${showSavedMenu ? 'bg-white/10 border-white/20 shadow-inner' : 'bg-white/5 border-white/10 hover:bg-white/10 shadow-sm'}`}
-                      title="Saved Accounts"
-                    >
-                      <Icon name="manage_accounts" size={24} className="text-white/80" />
-                    </button>
-                    
+                  <h3 className="text-[28px] fon
                     {showSavedMenu && (
                       <div className="absolute right-0 top-full mt-3 w-[340px] bg-[#020617]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-4 z-50 animate-fade-in-up origin-top-right">
                         <div className="flex justify-between items-center mb-4">
