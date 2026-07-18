@@ -1,27 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Icon from '../components/Icon'
-import { auth, db } from '../firebase'
-import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail, updateProfile } from 'firebase/auth'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
-
-const sendDirectEmail = (to, subject, html) => {
-  return new Promise((resolve, reject) => {
-    const send = () => {
-      window.Email.send({
-        Host: 'smtp.gmail.com',
-        Username: 'orbiplatform@gmail.com',
-        Password: 'vyof mngp wxxh ctyc',
-        To: to,
-        From: 'orbiplatform@gmail.com',
-        Subject: subject,
-        Body: html
-      }).then(msg => msg === 'OK' ? resolve() : reject(new Error(msg))).catch(reject);
-    };
-    if (window.Email) return send();
-    const script = document.createElement('script');
-    script.src = 'https://smtpjs.com/v3/smtp.js';
-    script.onload = send;
+import { 
     script.onerror = () => reject(new Error('SMTP.js load failed'));
     document.head.appendChild(script);
   });
