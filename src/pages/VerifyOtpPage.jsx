@@ -4,23 +4,7 @@ import Icon from '../components/Icon'
 
 export default function VerifyOtpPage() {
   const navigate = useNavigate()
-  const [timeLeft, setTimeLeft] = useState(59)
-  const [canResend, setCanResend] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const inputsRef = useRef([])
-
-  const gridRef = useRef(null)
-  const blob1Ref = useRef(null)
-  const blob2Ref = useRef(null)
-
-  useEffect(() => {
-    // Trigger mount animation
-    const t = setTimeout(() => setMounted(true), 50)
-
-    const handleMouse = (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30
-      const y = (e.clientY / window.innerHeight - 0.5) * 30
+  const [timeLef
       if (gridRef.current)  gridRef.current.style.transform  = `translate(${x * -0.5}px, ${y * -0.5}px)`
       if (blob1Ref.current) blob1Ref.current.style.transform  = `translate(${x}px, ${y}px)`
       if (blob2Ref.current) blob2Ref.current.style.transform  = `translate(${-x}px, ${-y}px)`
@@ -70,30 +54,6 @@ export default function VerifyOtpPage() {
 
   const handleResend = () => {
     setTimeLeft(59)
-    setCanResend(false)
-    inputsRef.current.forEach(el => { if (el) el.value = '' })
-    inputsRef.current[0]?.focus()
-  }
-
-  return (
-    <div className="min-h-screen flex items-center justify-center p-4 md:p-12 overflow-hidden relative mesh-gradient">
-      {/* Geometric grid */}
-      <div ref={gridRef} className="absolute inset-0 pointer-events-none z-0 geometric-grid opacity-30 transition-transform duration-75 ease-linear" />
-
-      {/* Ambient blobs */}
-      <div ref={blob1Ref} className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none transition-transform duration-75 ease-linear bg-secondary/10" />
-      <div ref={blob2Ref} className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none transition-transform duration-75 ease-linear bg-slate-500/10" />
-
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center px-6 md:px-12 h-20 bg-transparent pointer-events-none">
-        <span className="text-[20px] font-black text-white tracking-tight text-glow uppercase">Last Hope</span>
-      </header>
-
-      <main className="min-h-screen flex items-center justify-center p-6 w-full max-w-[460px] relative z-10">
-        <div className={`w-full premium-blur rim-light p-8 md:p-10 rounded-2xl transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-
-          {/* Icon + Heading */}
-          <div className="mb-10 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-white/5 border border-white/10 rounded-full mb-6 text-glow">
               <Icon name="shield_lock" className="text-secondary-fixed-dim" size={32} />
             </div>
