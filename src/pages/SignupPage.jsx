@@ -2,19 +2,6 @@ import { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { 
-    script.onerror = () => reject(new Error('SMTP.js load failed'));
-    document.head.appendChild(script);
-  });
-};
-
-export default function SignupPage() {
-  const navigate = useNavigate()
-  const [bgVideoEnabled, setBgVideoEnabled] = useState(() => {
-    const saved = localStorage.getItem('lastHopeBgVideo');
-    return saved !== null ? JSON.parse(saved) : true;
-  });
-
-  useEffect(() => {
     localStorage.setItem('lastHopeBgVideo', JSON.stringify(bgVideoEnabled));
   }, [bgVideoEnabled]);
   const [preview, setPreview] = useState(null)
@@ -159,23 +146,7 @@ export default function SignupPage() {
           return;
         }
       } catch (checkErr) {
-        console.warn('Email pre-check failed or is restricted:', checkErr);
-      }
-
-      // Generate OTP locally
-      const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-      sessionStorage.setItem('lastHope_signup_otp', generatedOtp);
-      sessionStorage.setItem('lastHope_signup_otp_expiry', Date.now() + 5 * 60 * 1000);
-
-      // Send Email via SMTPJS
-      const emailBody = `
-        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; background-color: #f4f7f6; border-radius: 12px;">
-          <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #0f172a; margin: 0; font-size: 28px; letter-spacing: -0.5px;">Last Hope</h1>
-          </div>
-          <div style="background-color: #ffffff; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center;">
-            <h2 style="color: #1e293b; font-size: 22px; margin-top: 0; margin-bottom: 10px;">Verify your email</h2>
-            <p style="color: #64748b; font-size: 16px; line-height: 1.5; margin-bottom: 35px;">
+        console.warn('Email pre-c1.5; margin-bottom: 35px;">
               You are almost there! Please use the verification code below to complete your registration.
             </p>
             <div style="background-color: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 25px; margin: 0 auto; max-width: 250px;">
@@ -230,17 +201,7 @@ export default function SignupPage() {
   }
 
   const handleVerifyOtp = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const { email, password, fullname, rollno } = tempUserData;
-
-      // Local OTP verification
-      const storedOtp = sessionStorage.getItem('lastHope_signup_otp');
-      const expiry = sessionStorage.getItem('lastHope_signup_otp_expiry');
-
-      if (!storedOtp || !expiry) throw new Error('No active OTP found. Please request a new one.');
+    e.preventDefault();ound. Please request a new one.');
       if (Date.now() > parseInt(expiry)) throw new Error('OTP has expired.');
       if (otpInput !== storedOtp) throw new Error('Invalid OTP.');
 
@@ -295,18 +256,7 @@ export default function SignupPage() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ to: email, subject, html })
           });
-          if (!resp.ok) throw new Error("Backend unavailable");
-        } catch (e) {
-          await sendDirectEmail(email, subject, html);
-        }
-      } catch (emailErr) {
-        console.warn('Failed to send welcome email:', emailErr);
-      }
-
-      setLoading(false)
-      setSent(true)
-      setShowOtp(false)
-      setTimeout(() => {
+          if (!resp.
         navigate('/dashboard')
       }, 1000)
 
