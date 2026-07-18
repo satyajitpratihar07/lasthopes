@@ -328,18 +328,6 @@ import {
             allow="autoplay; encrypted-media"
             allowFullScreen
           />
-        </div>
-      );
-    }
-
-    return (
-      <div className="fixed inset-0 z-[-35] w-full h-full overflow-hidden pointer-events-none">
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src={activeVideoUrl}
-          autoPlay
-          muted
-          loop
           playsInline
         />
       </div>
@@ -363,53 +351,7 @@ import {
           </div>
           <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter drop-shadow-2xl">Last Hope</h1>
         </div>
-        <h2 className="text-7xl lg:text-[110px] leading-[0.95] font-black text-white tracking-tighter drop-shadow-2xl mb-8">
-          Master your<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-100 to-sky-300 drop-shadow-lg">
-            academic flow.
-          </span>
-        </h2>
-        <div className="space-y-6 max-w-xl hidden md:block">
-          {[
-            { icon: 'verified', title: 'Structured Success', desc: 'Turn academic chaos into a clear, manageable path.' },
-            { icon: 'speed', title: 'Fast Response', desc: 'Minimalist interface for high-stakes environments.' },
-          ].map(({ icon, title, desc }, index) => {
-            const delays = ['delay-[400ms]', 'delay-[600ms]'];
-            return (
-              <div key={title} className={`flex items-start gap-5 p-4 -mx-4 rounded-2xl transition-all duration-300 transform ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'} ${delays[index]}`}>
-                <div className="w-12 h-12 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Icon name={icon} className="text-teal-300" size={24} />
-                </div>
-                <div className="drop-shadow-lg">
-                  <p className="font-bold text-white text-[20px] tracking-wide">{title}</p>
-                  <p className="text-white/80 text-[16px] mt-1 leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* ── Form Section (Bottom Right) ──────────────────── */}
-      <div className={`absolute bottom-0 right-0 md:bottom-8 md:right-8 z-20 w-full max-w-[420px] transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ease-out ${isIdle ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-        <main ref={cardRef} className="w-full max-h-[85vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] shadow-[0_16px_48px_rgba(0,0,0,0.8)] rounded-t-3xl md:rounded-3xl bg-black/20 backdrop-blur-2xl border border-white/10 ring-1 ring-white/5 relative group/main p-6 md:p-8">
-          <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover/main:opacity-100 transition-opacity duration-1000 pointer-events-none" />
-
-          <header className={`mb-8 transition-all duration-700 delay-300 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
-            <h2 className="text-3xl font-bold text-white tracking-tight drop-shadow-md">Create Account</h2>
-            <p className="text-white/60 mt-1 text-[14px]">Enter your details to begin your academic flow.</p>
-          </header>
-
-          <form className="space-y-4" id="signupForm" onSubmit={handleSubmit}>
-            {/* Avatar upload */}
-            <div className={`flex flex-col items-center md:items-start mb-6 transition-all duration-700 delay-400 transform ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-              <label
-                htmlFor="profile-upload"
-                className="group relative w-20 h-20 rounded-full border-2 border-dashed border-white/20 hover:border-yellow-400 hover:shadow-[0_0_30px_rgba(250,204,21,0.2)] transition-all duration-500 cursor-pointer flex items-center justify-center overflow-hidden bg-black/20 backdrop-blur-md"
-              >
-                <input ref={fileRef} id="profile-upload" type="file" accept="image/*" className="hidden" onChange={handleFile} />
-                {preview ? (
-                  <img src={preview} alt="Preview" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+et-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 ) : (
                   <div className="text-center transition-transform">
                     <Icon name="add_a_photo" className="text-white/50 group-hover:text-yellow-400 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 block mx-auto drop-shadow-md" size={24} />
