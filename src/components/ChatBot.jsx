@@ -4,22 +4,7 @@ import Icon from './Icon'
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([
-    { role: 'model', text: 'Hello! I am the Last Hope AI Assistant. How can I help you with your academic portal today?' }
-  ])
-  const [input, setInput] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef(null)
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  useEffect(() => {
-    if (isOpen) scrollToBottom()
-  }, [messages, isOpen])
-
-  const handleSend = async (e) => {
-    e.preventDefault()
+    { role
     if (!input.trim() || isLoading) return
 
     const userText = input.trim()
