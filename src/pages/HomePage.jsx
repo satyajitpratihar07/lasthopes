@@ -3,19 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function HomePage() {
   const navigate = useNavigate()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    // Slight delay before fading in text
-    const mountTimer = setTimeout(() => {
-      setMounted(true)
-    }, 300)
-
-    // Redirect to login after 3.5 seconds
-    const redirectTimer = setTimeout(() => {
-      navigate('/login')
-    }, 3500)
-
+  const [m
     return () => {
       clearTimeout(mountTimer)
       clearTimeout(redirectTimer)
