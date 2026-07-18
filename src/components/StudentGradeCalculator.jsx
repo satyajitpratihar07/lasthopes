@@ -172,55 +172,6 @@ export default function StudentGradeCalculator({ theme }) {
             </p>
           </div>
           
-          <div className="relative z-10 flex-shrink-0 ml-4 hidden sm:block">
-            {/* Visual Circular Gauge */}
-            <div className="w-32 h-32 rounded-full border-8 border-indigo-500/20 flex items-center justify-center relative shadow-inner">
-              <svg className="absolute inset-0 w-full h-full -rotate-90">
-                <circle 
-                  cx="64" cy="64" r="56" 
-                  stroke="currentColor" 
-                  strokeWidth="8" 
-                  fill="transparent" 
-                  className="text-indigo-500 transition-all duration-1000 ease-out drop-shadow-[0_0_10px_rgba(99,102,241,0.5)]"
-                  strokeDasharray="351.8" 
-                  strokeDashoffset={351.8 - (351.8 * scale.calcPercentage(cgpaRaw)) / 100} 
-                  strokeLinecap="round"
-                />
-              </svg>
-              <div className="text-center">
-                <Icon name="military_tech" size={32} className="text-indigo-400 mb-1" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="p-6 rounded-3xl bg-gradient-to-br from-blue-500/10 to-[#091426] border border-blue-500/30 premium-blur flex flex-col justify-center relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity group-hover:scale-110 duration-500">
-            <Icon name="school" size={64} className="text-blue-400" />
-          </div>
-          <div className="relative z-10">
-            <p className="text-sm text-blue-400 mb-2 font-bold uppercase tracking-wider">Overall CGPA</p>
-            <h3 className="text-5xl font-black text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-              {cgpaDisplay} <span className="text-xl text-white/30 font-normal">/ {scale.max}</span>
-            </h3>
-          </div>
-        </div>
-
-        <div className="p-6 rounded-3xl bg-gradient-to-br from-green-500/10 to-[#091426] border border-green-500/30 premium-blur flex flex-col justify-center relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity group-hover:scale-110 duration-500">
-            <Icon name="trending_up" size={64} className="text-green-400" />
-          </div>
-          <div className="relative z-10">
-            <p className="text-sm text-green-400 mb-2 font-bold uppercase tracking-wider">Current SGPA</p>
-            <h3 className="text-5xl font-black text-white drop-shadow-[0_0_10px_rgba(74,222,128,0.3)]">
-              {currentSgpaDisplay} <span className="text-xl text-white/30 font-normal">/ {scale.max}</span>
-            </h3>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
         {/* Current Semester SGPA Calculator */}
         <div className="lg:col-span-7 bg-white/5 border border-white/10 rounded-3xl premium-blur overflow-hidden flex flex-col shadow-2xl">
           <div className="px-6 py-5 border-b border-white/10 bg-white/5 flex justify-between items-center">
