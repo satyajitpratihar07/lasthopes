@@ -5,6 +5,7 @@
 <br>🚀 Your Last-Minute Study Companion for College & Competitive Exams<br/>
 <p align="center">
   <strong>Study Smarter • Learn Faster • Score Better</strong><br>
+
   An AI-inspired learning platform that helps students prepare effectively during the final days before exams with curated YouTube lectures, smart study resources, GATE preparation, and quick revision materials.
 </p>
 
