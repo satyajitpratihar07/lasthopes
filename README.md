@@ -1,6 +1,7 @@
 <div align="center">
 
 📚 LastHope 
+
 <br>🚀 Your Last-Minute Study Companion for College & Competitive Exams<br/>
 <p align="center">
   <strong>Study Smarter • Learn Faster • Score Better</strong><br>
