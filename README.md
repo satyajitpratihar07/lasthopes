@@ -131,7 +131,7 @@ If you find this project useful, don't forget to ⭐ the repository.
 
 Passionate about building AI-powered applications that solve real-world problems.
 
----
+--
 
 <div align="center">
 
