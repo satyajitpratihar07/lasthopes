@@ -72,7 +72,7 @@ Instead of spending hours searching for the best lectures, LastHope collects qua
 
 It is built especially for students who have limited time before exams and need trusted learning materials quickly.
 
---
+-
 
 🛠️ Tech Stack
 
