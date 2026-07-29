@@ -3,38 +3,9 @@ import Icon from './Icon';
 
 const SCALES = {
   '10-point-standard': {
-    name: 'Standard 10-Point (CGPA × 10)',
-    max: 10,
-    calcPercentage: (cgpa) => Math.min(100, Math.max(0, cgpa * 10)),
-    grades: { 'O': 10, 'A+': 10, 'A': 9, 'B+': 8, 'B': 7, 'C+': 6, 'C': 5, 'D': 4, 'P': 4, 'F': 0 }
-  },
-  'makaut': {
-    name: 'MAKAUT / WBUT ((CGPA - 0.75) × 10)',
-    max: 10,
-    calcPercentage: (cgpa) => cgpa > 0.75 ? Math.min(100, (cgpa - 0.75) * 10) : 0,
-    grades: { 'O': 10, 'E': 9, 'A': 8, 'B': 7, 'C': 6, 'D': 5, 'F': 0 }
-  },
-  'mumbai': {
-    name: 'Mumbai University (CGPA × 7.1 + 11)',
-    max: 10,
-    calcPercentage: (cgpa) => cgpa > 0 ? Math.min(100, cgpa * 7.1 + 11) : 0,
-    grades: { 'O': 10, 'A+': 9, 'A': 8, 'B+': 7, 'B': 6, 'C': 5, 'P': 4, 'F': 0 }
-  },
-  'vtu': {
-    name: 'VTU ((CGPA - 0.75) × 10)',
-    max: 10,
-    calcPercentage: (cgpa) => cgpa > 0.75 ? Math.min(100, (cgpa - 0.75) * 10) : 0,
-    grades: { 'S': 10, 'A': 9, 'B': 8, 'C': 7, 'D': 6, 'E': 4, 'F': 0 }
-  },
+    name: 'Standard 10-Poi
   'cbse-10': {
-    name: 'Standard 9.5 Multiplier (CGPA × 9.5)',
-    max: 10,
-    calcPercentage: (cgpa) => Math.min(100, Math.max(0, cgpa * 9.5)),
-    grades: { 'O': 10, 'A+': 10, 'A': 9, 'B+': 8, 'B': 7, 'C': 6, 'D': 5, 'P': 4, 'F': 0 }
-  },
-  '4-point-us': {
-    name: 'US 4-Point Scale',
-    max: 4,
+    name: 'Standard 9.5 Mu
     calcPercentage: (cgpa) => Math.min(100, Math.max(0, (cgpa / 4) * 100)),
     grades: { 'A': 4.0, 'A-': 3.7, 'B+': 3.3, 'B': 3.0, 'B-': 2.7, 'C+': 2.3, 'C': 2.0, 'C-': 1.7, 'D+': 1.3, 'D': 1.0, 'F': 0 }
   }
