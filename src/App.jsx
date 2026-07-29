@@ -6,25 +6,10 @@ import VerifyOtpPage from './pages/VerifyOtpPage'
 import DashboardPage from './pages/DashboardPage'
 import ThreeBackground from './components/ThreeBackground'
 import VideoBackground from './components/VideoBackground'
-
-function AppInner() {
-  const location = useLocation()
-  // On login/signup, show video background; hide the Three.js particle canvas
-  const isVideoPage = location.pathname === '/login' || location.pathname === '/signup'
-
-  return (
-    <>
-      {/* Three.js particle constellation — hidden on video pages to prevent lag */}
-      {!isVideoPage && <ThreeBackground />}
+}
 
       {/* Fullscreen video background — only on login / signup */}
-      <VideoBackground />
-
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/verify-otp" element={<VerifyOtpPage />} />
+      <VideoBackground />ifyOtpPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </>
