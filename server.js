@@ -4,21 +4,6 @@ import nodemailer from 'nodemailer';
 import axios from 'axios';
 import dotenv from 'dotenv';
 
-dotenv.config();
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
 
 app.post('/api/send-email', async (req, res) => {
   const { to, subject, text, html } = req.body;
