@@ -5,56 +5,8 @@ export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([
     { role
-    if (!input.trim() || isLoading) return
-
-    const userText = input.trim()
-    setInput('')
-    setMessages(prev => [...prev, { role: 'user', text: userText }])
-    setIsLoading(true)
-
-    try {
-      // Filter out any previous error messages to keep the history clean.
-      // We also skip the first message (greeting) to ensure history always starts with a user prompt if required.
-      const historyToSend = messages.slice(1).filter(m => !m.text.includes('API Error:') && !m.text.includes('Error 404'))
-
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-      const response = await fetch(`${apiUrl}/api/chat`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          history: historyToSend,
-          message: userText
-        })
-      })
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-
-      const data = await response.json()
-      
-      if (data.error) {
-        throw new Error(data.error)
-      }
-
-      setMessages(prev => [...prev, { role: 'model', text: data.text }])
-    } catch (error) {
-      console.error('Gemini API Error:', error)
-      // Smart Offline Fallback Mode
-      const inputLower = userText.toLowerCase()
-      let text = `I couldn't reach the Google Gemini servers with the provided API key (Error 404). However, I'm running in offline mode! I can help you with basic navigation of the Last Hope portal.`
-      
-      if (inputLower.includes('hello') || inputLower.includes('hi') || inputLower.includes('hey')) {
-        text = "Hello! I am the Last Hope AI. I'm currently running in offline fallback mode because the API key is restricted. How can I assist you with the portal?"
-      } else if (inputLower.includes('fix') || inputLower.includes('error') || inputLower.includes('404')) {
-        text = "The 404 error means your API key doesn't have access to the 'Generative Language API'. To fix it, you need to generate a new key specifically from Google AI Studio (aistudio.google.com), not Google Cloud."
-      } else if (inputLower.includes('login') || inputLower.includes('account')) {
-        text = "You can log in using either an Admin or Student account. Check out the Saved Accounts dropdown next to the Welcome Back text to auto-fill credentials!"
-      } else if (inputLower.includes('dashboard') || inputLower.includes('portal')) {
-        text = "Once you log in, the dashboard will give you access to your course materials, schedule, and system telemetry depending on your role."
-      } else if (inputLower.includes('help')) {
+          history: historyTo
+      const inputLower = userText.toLo {
         text = "I can answer questions about logging in, fixing the API key error, or navigating the dashboard. Just ask!"
       }
 
