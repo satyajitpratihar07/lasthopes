@@ -5,23 +5,6 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    {
-      name: 'video-upload-api',
-      configureServer(server) {
-        // Ensure folder exists on server start
-        const uploadDir = path.resolve(__dirname, 'public/college-videos');
-        if (!fs.existsSync(uploadDir)) {
-          fs.mkdirSync(uploadDir, { recursive: true });
-        }
-
-        server.middlewares.use((req, res, next) => {
-          if (req.url.startsWith('/api/upload') && req.method === 'POST') {
-            const urlObj = new URL(req.url, 'http://localhost');
-            const filename = urlObj.searchParams.get('filename') || `video_${Date.now()}.mp4`;
-
-            const chunks = [];
             req.on('data', (chunk) => chunks.push(chunk));
             req.on('end', () => {
               const buffer = Buffer.concat(chunks);
